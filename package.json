@@ -74,6 +74,8 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
+      "!src/serviceWorker.js",
+      "!src/index.tsx",
       "!**/*.d.ts"
     ],
     "resolver": "jest-pnp-resolver",
@@ -87,8 +89,8 @@
     "testEnvironment": "jsdom",
     "testURL": "http://localhost",
     "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest",
       "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.tsx?$": "<rootDir>/config/jest/typescriptTransform.js",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
@@ -114,7 +116,7 @@
     ],
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "<rootDir>/tsconfig.test.json"
+        "tsConfig": "<rootDir>/tsconfig.test.json"
       }
     }
   },
